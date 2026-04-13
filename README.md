@@ -63,13 +63,13 @@ Open `index.html` in your browser to test locally.
 
 ## Rubric Checklist
 
-- [ ] **L'Oréal Branding** - Logo shown, official brand colors used
-- [ ] **Chatbot Configuration** - System prompt, input capture, API call, response display
-- [ ] **AI Relevance** - Refuses off-topic questions, stays on skincare
-- [ ] **Secure Deployment** - Cloudflare Worker properly configured
-- [ ] **LevelUp: Conversation History** - Context-aware responses
-- [ ] **LevelUp: User Question Display** - Shows user's question above response
-- [ ] **LevelUp: Chat Bubble UI** - Distinct styling for user/assistant messages
+- [x] **L'Oréal Branding** - Logo shown, official brand colors used
+- [x] **Chatbot Configuration** - System prompt, input capture, API call, response display
+- [x] **AI Relevance** - Refuses off-topic questions, stays on skincare
+- [x] **Secure Deployment** - Cloudflare Worker properly configured
+- [x] **LevelUp: Conversation History** - Context-aware responses
+- [x] **LevelUp: User Question Display** - Shows user's question above response
+- [x] **LevelUp: Chat Bubble UI** - Distinct styling for user/assistant messages
 - [ ] **Reflection Questions** - Answered thoughtfully
 
 ## Reflection Questions

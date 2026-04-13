@@ -36,6 +36,26 @@ body {
   margin-bottom: 15px;
 }
 
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--loreal-black);
+  text-shadow: 1px 1px 0 var(--loreal-gold);
+  margin-bottom: 0;
+}
+
+.logo-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 8px;
+  color: var(--loreal-gold);
+  margin-bottom: 10px;
+  margin-top: -5px;
+}
+
 h1 {
   font-family: 'Poppins', sans-serif;
   color: var(--loreal-black);
@@ -48,6 +68,44 @@ h1 {
   color: var(--loreal-gray);
   margin-top: 8px;
   font-size: 15px;
+}
+
+.skin-type-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.skin-type-label {
+  font-size: 14px;
+  color: var(--loreal-gray);
+  font-weight: 500;
+}
+
+.skin-type-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background: white;
+  color: var(--loreal-black);
+  border: 2px solid var(--loreal-black);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.skin-type-btn:hover {
+  background: var(--loreal-light);
+  transform: scale(1.05);
+}
+
+.skin-type-btn.active {
+  background: var(--loreal-black);
+  color: white;
 }
 
 .chat-container {

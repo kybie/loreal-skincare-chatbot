@@ -4,5 +4,4 @@
 
 // const apiKey = 'YOUR_OPENAI_API_KEY_HERE';
 
-// For local development with a Cloudflare Worker already deployed:
-const workerUrl = 'YOUR_CLOUDFLARE_WORKER_URL_HERE';
+// The workerUrl is now set directly in script.js
