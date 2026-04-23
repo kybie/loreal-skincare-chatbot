@@ -6,8 +6,7 @@ const PRODUCTS = [
     id: 'revitalift-triple-power-moisturizer',
     name: 'Revitalift Triple Power Moisturizer',
     category: 'moisturizer',
-    image: 'https://target.scene7.com/is/image/Target/GUEST_0a7e9d2e-4b62-4e1d-8e1e-1a2e3c4d5e6f',
-    imageFallback: 'https://placehold.co/200x200/10069f/faf8f5?text=Revitalift%0AMoisturizer',
+    image: 'images/revitalift-moisturizer.png',
     description: 'A pro-retinol, hyaluronic acid, and vitamin C powered anti-aging moisturizer that visibly reduces wrinkles, firms skin, and brightens in just 1 week.',
     url: 'https://www.lorealparisusa.com/skin-care/facial-moisturizers/revitalift-triple-power-anti-aging-moisturizer',
     skinTypes: ['dry', 'combination']
@@ -16,7 +15,7 @@ const PRODUCTS = [
     id: 'revitalift-moisturizer-spf30',
     name: 'Revitalift Moisturizer SPF 30',
     category: 'sunscreen',
-    imageFallback: 'https://placehold.co/200x200/10069f/faf8f5?text=Revitalift%0ASPF+30',
+    image: 'images/revitalift-spf30.png',
     description: 'Triple-action anti-aging moisturizer with SPF 30. Protects from UV damage while reducing wrinkles and firming skin. Lightweight daily wear.',
     url: 'https://www.lorealparisusa.com/skin-care/facial-moisturizers/revitalift-triple-power-moisturizer-spf-30',
     skinTypes: ['dry', 'combination', 'sensitive']
@@ -25,7 +24,7 @@ const PRODUCTS = [
     id: 'hydra-genius-normal-dry',
     name: 'Hydra Genius Daily Liquid Care',
     category: 'moisturizer',
-    imageFallback: 'https://placehold.co/200x200/10069f/faf8f5?text=Hydra%0AGenius',
+    image: 'images/hydra-genius.png',
     description: 'A water-based liquid moisturizer with hyaluronic acid and aloe vera water. Provides 72-hour hydration for normal to dry skin without heaviness.',
     url: 'https://www.lorealparisusa.com/skin-care/facial-moisturizers/hydra-genius-daily-liquid-care-normal-dry-skin',
     skinTypes: ['dry', 'sensitive']
@@ -34,7 +33,7 @@ const PRODUCTS = [
     id: 'revitalift-triple-power-serum',
     name: 'Revitalift Triple Power Serum',
     category: 'serum',
-    imageFallback: 'https://placehold.co/200x200/c5a88e/1a1a2e?text=Triple%0APower+Serum',
+    image: 'images/revitalift-serum.png',
     description: 'Concentrated anti-aging serum with pro-retinol, vitamin C, and hyaluronic acid. Visibly reduces wrinkles and firms skin with each application.',
     url: 'https://www.lorealparisusa.com/skin-care/face-serums/revitalift-triple-power-concentrated-serum',
     skinTypes: ['dry', 'combination', 'oily']
@@ -43,7 +42,7 @@ const PRODUCTS = [
     id: 'pure-retinol-serum',
     name: 'Pure Retinol 0.3% Serum',
     category: 'serum',
-    imageFallback: 'https://placehold.co/200x200/c5a88e/1a1a2e?text=Pure%0ARetinol+0.3%25',
+    image: 'images/pure-retinol-serum.png',
     description: '0.3% pure retinol serum that reduces the look of deep wrinkles and improves skin texture. Formulated with hyaluronic acid to maintain hydration.',
     url: 'https://www.lorealparisusa.com/skin-care/face-serums/pure-retinol-serum',
     skinTypes: ['combination', 'oily']
@@ -52,7 +51,7 @@ const PRODUCTS = [
     id: 'genifique-dark-spot-serum',
     name: 'Genifique Dark Spot Serum',
     category: 'serum',
-    imageFallback: 'https://placehold.co/200x200/c5a88e/1a1a2e?text=Genifique%0ADark+Spot',
+    image: 'images/genifique-serum.png',
     description: 'Advanced serum that targets dark spots and uneven tone. Formulated with glycolic acid and niacinamide to visibly brighten and even out skin.',
     url: 'https://www.lorealparisusa.com/skin-care/face-serums/genifique-dark-spot-serum',
     skinTypes: ['combination', 'oily', 'dry']
@@ -61,7 +60,7 @@ const PRODUCTS = [
     id: 'glycolic-acid-cleanser',
     name: 'Revitalift 10% Glycolic Acid Cleanser',
     category: 'cleanser',
-    imageFallback: 'https://placehold.co/200x200/d4a5a5/1a1a2e?text=Glycolic%0AAcid+Cleanser',
+    image: 'images/glycolic-cleanser.png',
     description: 'Exfoliating cleanser with 10% glycolic acid that removes dead skin cells, unclogs pores, and reveals brighter, smoother skin. Use 2–3 times per week.',
     url: 'https://www.lorealparisusa.com/skin-care/facial-cleansers/revitalift-derm-intensive-10-percent-glycolic-acid-cleanser',
     skinTypes: ['oily', 'combination']
@@ -70,7 +69,7 @@ const PRODUCTS = [
     id: 'age-perfect-eye-cream',
     name: 'Age Perfect Eye Cream',
     category: 'eye',
-    imageFallback: 'https://placehold.co/200x200/10069f/faf8f5?text=Age+Perfect%0AEye+Cream',
+    image: 'images/age-perfect-eye.png',
     description: 'Nourishing eye cream with soy protein and pro-calcium to reinforce the delicate eye area. Reduces the look of puffiness, dark circles, and crow\'s feet.',
     url: 'https://www.lorealparisusa.com/skin-care/eye-treatments/age-perfect-eye-cream',
     skinTypes: ['dry', 'combination', 'sensitive']
@@ -79,7 +78,7 @@ const PRODUCTS = [
     id: 'hyaluronic-acid-serum',
     name: 'Revitalift 1.5% Hyaluronic Acid Serum',
     category: 'serum',
-    imageFallback: 'https://placehold.co/200x200/c5a88e/1a1a2e?text=Hyaluronic%0AAcid+Serum',
+    image: 'images/hyaluronic-serum.png',
     description: '1.5% pure hyaluronic acid serum that plumps and visibly replumps skin. Micro and macro hyaluronic acid penetrate surface layers for deep and surface hydration.',
     url: 'https://www.lorealparisusa.com/skin-care/face-serums/revitalift-derm-intensives-1-5-hyaluronic-acid-serum',
     skinTypes: ['dry', 'sensitive', 'combination']
@@ -88,7 +87,7 @@ const PRODUCTS = [
     id: 'age-perfect-honey-cream',
     name: 'Age Perfect Honey Day Cream',
     category: 'moisturizer',
-    imageFallback: 'https://placehold.co/200x200/10069f/faf8f5?text=Age+Perfect%0AHoney+Cream',
+    image: 'images/honey-cream.png',
     description: 'Rich honey day cream for extra-dry, mature skin. Formulated with royal jelly and manuka honey to deeply nourish, soothe, and restore radiance.',
     url: 'https://www.lorealparisusa.com/skin-care/facial-moisturizers/age-perfect-hydra-nutrition-honey-day-cream',
     skinTypes: ['dry', 'sensitive']
@@ -97,7 +96,7 @@ const PRODUCTS = [
     id: 'revitalift-pressed-serum',
     name: 'Revitalift LZR Pressed Serum',
     category: 'serum',
-    imageFallback: 'https://placehold.co/200x200/c5a88e/1a1a2e?text=LZR%0APressed+Serum',
+    image: 'images/lzr-pressed-serum.png',
     description: 'Solid-to-serum formula with pure retinol and pro-retinol. Visibly reduces wrinkles and firms skin while providing intense moisture. Fragrance-free.',
     url: 'https://www.lorealparisusa.com/skin-care/face-serums/revitalift-triple-power-lzr-pressed-serum',
     skinTypes: ['dry', 'sensitive', 'combination']
@@ -106,7 +105,7 @@ const PRODUCTS = [
     id: 'revitalift-cleanser',
     name: 'Revitalift Cream Cleanser',
     category: 'cleanser',
-    imageFallback: 'https://placehold.co/200x200/d4a5a5/1a1a2e?text=Revitalift%0ACream+Cleanser',
+    image: 'images/revitalift-cleanser.png',
     description: 'Creamy daily facial cleanser with vitamin C and lemon essence. Gently removes dirt and impurities while leaving skin smooth, radiant, and refreshed.',
     url: 'https://www.lorealparisusa.com/skin-care/facial-cleansers/revitalift-radiant-smoothing-cream-cleanser',
     skinTypes: ['dry', 'sensitive']
@@ -123,7 +122,7 @@ function renderProductGrid(category = 'all') {
   const filtered = category === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === category);
 
   grid.innerHTML = filtered.map(product => {
-    const imgSrc = product.imageFallback;
+    const imgSrc = product.image;
     return `
     <div class="product-card" data-id="${product.id}">
       <div class="product-img-wrap">
