@@ -113,10 +113,15 @@ h1 {
   border-radius: 20px;
   box-shadow: 0 4px 30px rgba(16, 6, 159, 0.08);
   padding: 20px;
-  min-height: 400px;
+  min-height: 120px;
   max-height: 55vh;
   overflow-y: auto;
   margin-bottom: 20px;
+  transition: min-height 0.3s ease;
+}
+
+.chat-container:has(.message) {
+  min-height: 300px;
 }
 
 .chat-history {

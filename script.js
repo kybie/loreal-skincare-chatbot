@@ -245,6 +245,9 @@ document.getElementById('clearAllBtn').addEventListener('click', () => {
 // Apply persisted selections on page load
 updateSelectionUI();
 
+// Show welcome message on load
+showAssistantMessage('👋 Welcome! Browse and select products above, then click **Generate My Routine** — or ask me anything about L\'Oréal skincare.');
+
 // ============================================================
 // Get references to the DOM elements
 // ============================================================
