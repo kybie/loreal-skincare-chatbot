@@ -608,3 +608,122 @@ button:disabled {
 .generate-btn:active {
   transform: translateY(0);
 }
+
+/* ============================================================
+   RTL TOGGLE BUTTON
+   ============================================================ */
+
+.rtl-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.rtl-toggle-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  background: white;
+  color: var(--loreal-gray);
+  border: 1.5px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rtl-toggle-btn:hover {
+  border-color: var(--loreal-black);
+  color: var(--loreal-black);
+  transform: none;
+}
+
+.rtl-toggle-btn.active {
+  background: var(--loreal-black);
+  color: white;
+  border-color: var(--loreal-black);
+}
+
+/* ============================================================
+   RTL LAYOUT
+   ============================================================ */
+
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
+html[dir="rtl"] .header {
+  text-align: center;
+}
+
+html[dir="rtl"] .skin-type-selector {
+  direction: rtl;
+}
+
+html[dir="rtl"] .skin-type-label {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+html[dir="rtl"] .products-title {
+  text-align: right;
+}
+
+html[dir="rtl"] .category-tabs {
+  direction: rtl;
+}
+
+html[dir="rtl"] .product-search-icon {
+  left: auto;
+  right: 14px;
+}
+
+html[dir="rtl"] .product-search {
+  padding: 10px 40px 10px 16px;
+}
+
+html[dir="rtl"] .product-grid {
+  direction: rtl;
+}
+
+html[dir="rtl"] .product-category-badge {
+  left: auto;
+  right: 8px;
+}
+
+html[dir="rtl"] .product-card.selected::after {
+  right: auto;
+  left: 8px;
+}
+
+html[dir="rtl"] .selected-header {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .selected-list {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .selected-title {
+  text-align: right;
+}
+
+html[dir="rtl"] .chat-history {
+  direction: rtl;
+}
+
+html[dir="rtl"] .user-message {
+  align-self: flex-start;
+  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 6px;
+}
+
+html[dir="rtl"] .assistant-message {
+  align-self: flex-end;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 6px;
+}
+
+html[dir="rtl"] .chat-form {
+  flex-direction: row-reverse;
+}

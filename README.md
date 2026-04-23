@@ -46,8 +46,8 @@ loreal-skincare-chatbot/
 ### Bonus Features (LevelUp)
 
 - [x] **Product Search** — Real-time search field filters products by name or keyword alongside category filters
-- [ ] **Web Search Integration** — Chatbot responses include current, real-world information with visible links or citations
-- [ ] **RTL Language Support** — Layout supports right-to-left languages; product grid, selected products section, and chat all adjust correctly
+- [x] **Web Search Integration** — Chatbot responses include current, real-world information with visible links or citations (Wikipedia API, no key required)
+- [x] **RTL Language Support** — Layout supports right-to-left languages; product grid, selected products section, and chat all adjust correctly (toggle button in header)
 
 ---
 
@@ -94,8 +94,8 @@ loreal-skincare-chatbot/
 | Reveal Product Description (hover/modal/toggle) | ✅ Done |
 | Cloudflare Worker Integration (API key hidden) | ✅ Done |
 | LevelUp: Product Search | ✅ Done |
-| LevelUp: Web Search | ⬜ Not yet |
-| LevelUp: RTL Language Support | ⬜ Not yet |
+| LevelUp: Web Search | ✅ Done |
+| LevelUp: RTL Language Support | ✅ Done |
 
 ---
 

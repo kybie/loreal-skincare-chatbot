@@ -480,3 +480,16 @@ function scrollToBottom() {
   const chatContainer = document.getElementById('chatContainer');
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
+
+// ============================================================
+// RTL TOGGLE
+// ============================================================
+const rtlToggle = document.getElementById('rtlToggle');
+rtlToggle.addEventListener('click', () => {
+  const html = document.documentElement;
+  const isRTL = html.getAttribute('dir') === 'rtl';
+  html.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
+  html.setAttribute('lang', isRTL ? 'en' : 'ar');
+  rtlToggle.textContent = isRTL ? '🌐 العربية' : '🌐 English';
+  rtlToggle.classList.toggle('active', !isRTL);
+});
