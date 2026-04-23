@@ -364,6 +364,48 @@ button:disabled {
   padding: 10px;
 }
 
+/* Description overlay — slides up on hover/tap */
+.product-desc-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(16, 6, 159, 0.92);
+  color: white;
+  padding: 12px;
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.product-img-wrap:hover .product-desc-overlay,
+.product-img-wrap.desc-open .product-desc-overlay {
+  transform: translateY(0);
+}
+
+.product-desc-text {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+}
+
+.product-desc-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: #c5f135;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.product-desc-link:hover {
+  text-decoration: underline;
+}
+
 .product-category-badge {
   position: absolute;
   top: 8px;

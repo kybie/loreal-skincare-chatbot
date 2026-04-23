@@ -132,6 +132,10 @@ function renderProductGrid(category = 'all') {
           class="product-img"
         />
         <span class="product-category-badge">${formatCategory(product.category)}</span>
+        <div class="product-desc-overlay">
+          <p class="product-desc-text">${product.description}</p>
+          <a class="product-desc-link" href="${product.url}" target="_blank" rel="noopener">View on L'Oréal ↗</a>
+        </div>
       </div>
       <div class="product-info">
         <div class="product-name">${product.name}</div>
@@ -230,6 +234,8 @@ function updateSelectionUI() {
 
 // Delegate click on product grid (works after re-renders)
 document.getElementById('productGrid').addEventListener('click', (e) => {
+  // Don't intercept clicks on the L'Oreal link inside the overlay
+  if (e.target.closest('.product-desc-link')) return;
   const card = e.target.closest('.product-card');
   if (card) toggleProductSelection(card.dataset.id);
 });
