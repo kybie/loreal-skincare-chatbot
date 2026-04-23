@@ -1,4 +1,165 @@
+// ============================================================
+// PRODUCT DATA
+// ============================================================
+const PRODUCTS = [
+  {
+    id: 'revitalift-triple-power-moisturizer',
+    name: 'Revitalift Triple Power Moisturizer',
+    category: 'moisturizer',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/beauty-magazine/2019/february/skincare-winter/revitalift-triple-power-anti-aging-moisturizer.jpg',
+    description: 'A pro-retinol, hyaluronic acid, and vitamin C powered anti-aging moisturizer that visibly reduces wrinkles, firms skin, and brightens in just 1 week.',
+    url: 'https://www.lorealparisusa.com/skin-care/facial-moisturizers/revitalift-triple-power-anti-aging-moisturizer',
+    skinTypes: ['dry', 'combination']
+  },
+  {
+    id: 'revitalift-moisturizer-spf30',
+    name: 'Revitalift Moisturizer SPF 30',
+    category: 'sunscreen',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/moisturizers/revitalift-triple-power-moisturizer-spf-30/610-12-00-3600523541218-t1.jpg',
+    description: 'Triple-action anti-aging moisturizer with SPF 30. Protects from UV damage while reducing wrinkles and firming skin. Lightweight daily wear.',
+    url: 'https://www.lorealparisusa.com/skin-care/facial-moisturizers/revitalift-triple-power-moisturizer-spf-30',
+    skinTypes: ['dry', 'combination', 'sensitive']
+  },
+  {
+    id: 'hydra-genius-normal-dry',
+    name: 'Hydra Genius Daily Liquid Care',
+    category: 'moisturizer',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/moisturizers/hydra-genius-daily-liquid-care-normal-to-dry/3600522491316-t1.jpg',
+    description: 'A water-based liquid moisturizer with hyaluronic acid and aloe vera water. Provides 72-hour hydration for normal to dry skin without heaviness.',
+    url: 'https://www.lorealparisusa.com/skin-care/facial-moisturizers/hydra-genius-daily-liquid-care-normal-dry-skin',
+    skinTypes: ['dry', 'sensitive']
+  },
+  {
+    id: 'revitalift-triple-power-serum',
+    name: 'Revitalift Triple Power Serum',
+    category: 'serum',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/serums/revitalift-triple-power-concentrated-serum/3600523196142-t1.jpg',
+    description: 'Concentrated anti-aging serum with pro-retinol, vitamin C, and hyaluronic acid. Visibly reduces wrinkles and firms skin with each application.',
+    url: 'https://www.lorealparisusa.com/skin-care/face-serums/revitalift-triple-power-concentrated-serum',
+    skinTypes: ['dry', 'combination', 'oily']
+  },
+  {
+    id: 'pure-retinol-serum',
+    name: 'Pure Retinol 0.3% Serum',
+    category: 'serum',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/serums/pure-retinol-serum/3600524070700-t1.jpg',
+    description: '0.3% pure retinol serum that reduces the look of deep wrinkles and improves skin texture. Formulated with hyaluronic acid to maintain hydration.',
+    url: 'https://www.lorealparisusa.com/skin-care/face-serums/pure-retinol-serum',
+    skinTypes: ['combination', 'oily']
+  },
+  {
+    id: 'genifique-dark-spot-serum',
+    name: 'Genifique Dark Spot Serum',
+    category: 'serum',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/serums/genifique-dark-spot-laser-light-serum/3600524049973-t1.jpg',
+    description: 'Advanced serum that targets dark spots and uneven tone. Formulated with glycolic acid and niacinamide to visibly brighten and even out skin.',
+    url: 'https://www.lorealparisusa.com/skin-care/face-serums/genifique-dark-spot-serum',
+    skinTypes: ['combination', 'oily', 'dry']
+  },
+  {
+    id: 'glycolic-acid-cleanser',
+    name: 'Revitalift 10% Glycolic Acid Cleanser',
+    category: 'cleanser',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/cleansers/revitalift-derm-intensives-10-percent-glycolic-acid-cleanser/3600524032234-t1.jpg',
+    description: 'Exfoliating cleanser with 10% glycolic acid that removes dead skin cells, unclogs pores, and reveals brighter, smoother skin. Use 2–3 times per week.',
+    url: 'https://www.lorealparisusa.com/skin-care/facial-cleansers/revitalift-derm-intensive-10-percent-glycolic-acid-cleanser',
+    skinTypes: ['oily', 'combination']
+  },
+  {
+    id: 'age-perfect-eye-cream',
+    name: 'Age Perfect Eye Cream',
+    category: 'eye',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/eye-treatments/age-perfect-eye-cream/3600524063276-t1.jpg',
+    description: 'Nourishing eye cream with soy protein and pro-calcium to reinforce the delicate eye area. Reduces the look of puffiness, dark circles, and crow\'s feet.',
+    url: 'https://www.lorealparisusa.com/skin-care/eye-treatments/age-perfect-eye-cream',
+    skinTypes: ['dry', 'combination', 'sensitive']
+  },
+  {
+    id: 'revitalift-1-5-hyaluronic-acid-serum',
+    name: 'Revitalift 1.5% Pure Hyaluronic Acid Serum',
+    category: 'serum',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/serums/revitalift-derm-intensives-15-pure-hyaluronic-acid-serum/3600524072346-t1.jpg',
+    description: '1.5% pure hyaluronic acid serum that plumps and visibly replumps skin. Micro and macro hyaluronic acid penetrate surface layers for deep and surface hydration.',
+    url: 'https://www.lorealparisusa.com/skin-care/face-serums/revitalift-derm-intensives-1-5-hyaluronic-acid-serum',
+    skinTypes: ['dry', 'sensitive', 'combination']
+  },
+  {
+    id: 'age-perfect-radiant-serum',
+    name: 'Age Perfect Radiant Serum Foundation',
+    category: 'moisturizer',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/moisturizers/age-perfect-hydra-nutrition-honey-day-cream/3600522838952-t1.jpg',
+    description: 'Rich honey day cream for extra-dry, mature skin. Formulated with royal jelly and manuka honey to deeply nourish, soothe, and restore radiance.',
+    url: 'https://www.lorealparisusa.com/skin-care/facial-moisturizers/age-perfect-hydra-nutrition-honey-day-cream',
+    skinTypes: ['dry', 'sensitive']
+  },
+  {
+    id: 'revitalift-pressed-serum',
+    name: 'Revitalift Triple Power LZR Pressed Serum',
+    category: 'serum',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/serums/revitalift-triple-power-lzr-pressed-serum/3600524134747-t1.jpg',
+    description: 'Solid-to-serum formula with pure retinol and pro-retinol. Visibly reduces wrinkles and firms skin while providing intense moisture. Fragrance-free.',
+    url: 'https://www.lorealparisusa.com/skin-care/face-serums/revitalift-triple-power-lzr-pressed-serum',
+    skinTypes: ['dry', 'sensitive', 'combination']
+  },
+  {
+    id: 'revitalift-cleanser',
+    name: 'Revitalift Radiant Smoothing Cream Cleanser',
+    category: 'cleanser',
+    image: 'https://www.lorealparisusa.com/-/media/project/loreal/brand-sites/oap/americas/us/products/skin-care/cleansers/revitalift-radiant-smoothing-cream-cleanser/3600522491231-t1.jpg',
+    description: 'Creamy daily facial cleanser with vitamin C and lemon essence. Gently removes dirt and impurities while leaving skin smooth, radiant, and refreshed.',
+    url: 'https://www.lorealparisusa.com/skin-care/facial-cleansers/revitalift-radiant-smoothing-cream-cleanser',
+    skinTypes: ['dry', 'sensitive']
+  }
+];
+
+// ============================================================
+// PRODUCT GRID RENDERING
+// ============================================================
+let activeCategory = 'all';
+
+function renderProductGrid(category = 'all') {
+  const grid = document.getElementById('productGrid');
+  const filtered = category === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === category);
+
+  grid.innerHTML = filtered.map(product => `
+    <div class="product-card" data-id="${product.id}">
+      <div class="product-img-wrap">
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+          class="product-img"
+          onerror="this.src='https://via.placeholder.com/200x200/faf8f5/10069f?text=L%27Oréal'"
+        />
+        <span class="product-category-badge">${formatCategory(product.category)}</span>
+      </div>
+      <div class="product-info">
+        <div class="product-name">${product.name}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function formatCategory(cat) {
+  const map = { moisturizer: 'Moisturizer', serum: 'Serum', cleanser: 'Cleanser', sunscreen: 'Sunscreen', eye: 'Eye Care' };
+  return map[cat] || cat;
+}
+
+// Category tab filtering
+document.querySelectorAll('.category-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    activeCategory = tab.dataset.category;
+    renderProductGrid(activeCategory);
+  });
+});
+
+// Initial render
+renderProductGrid();
+
+// ============================================================
 // Get references to the DOM elements
+// ============================================================
 const chatForm = document.getElementById('chatForm');
 const userInput = document.getElementById('userInput');
 const chatHistory = document.getElementById('chatHistory');

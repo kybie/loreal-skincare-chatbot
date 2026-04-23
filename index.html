@@ -22,20 +22,39 @@
         <button type="button" class="skin-type-btn" data-skin="sensitive">Sensitive</button>
       </div>
     </header>
-    
+
+    <!-- PRODUCT SECTION -->
+    <section class="products-section">
+      <h2 class="products-title">Browse Products</h2>
+
+      <!-- Category filter tabs -->
+      <div class="category-tabs">
+        <button type="button" class="category-tab active" data-category="all">All</button>
+        <button type="button" class="category-tab" data-category="moisturizer">Moisturizers</button>
+        <button type="button" class="category-tab" data-category="serum">Serums</button>
+        <button type="button" class="category-tab" data-category="cleanser">Cleansers</button>
+        <button type="button" class="category-tab" data-category="sunscreen">Sunscreen</button>
+        <button type="button" class="category-tab" data-category="eye">Eye Care</button>
+      </div>
+
+      <!-- Product grid -->
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    <!-- CHAT SECTION -->
     <div id="chatContainer" class="chat-container">
       <div id="chatHistory" class="chat-history"></div>
       <div id="typingIndicator" class="typing-indicator hidden">
         <span></span><span></span><span></span>
       </div>
     </div>
-    
+
     <form id="chatForm" class="chat-form">
       <input type="text" id="userInput" placeholder="Ask about L'Oréal skincare products..." autocomplete="off">
       <button type="submit" id="sendButton">Send</button>
     </form>
   </div>
-  
+
   <script src="secrets.js"></script>
   <script src="script.js"></script>
 </body>
