@@ -1,14 +1,5 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "loreal-skincare-chatbot",
-  "compatibility_date": "2026-04-13",
-  "observability": {
-    "enabled": true
-  },
-  "assets": {
-    "directory": "."
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  "main": "cloudflare-worker.js",
+  "compatibility_date": "2026-04-13"
 }
