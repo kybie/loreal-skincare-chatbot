@@ -116,10 +116,24 @@ const PRODUCTS = [
 // PRODUCT GRID RENDERING
 // ============================================================
 let activeCategory = 'all';
+let searchQuery = '';
 
-function renderProductGrid(category = 'all') {
+function renderProductGrid(category = activeCategory) {
   const grid = document.getElementById('productGrid');
-  const filtered = category === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === category);
+  const q = searchQuery.toLowerCase().trim();
+  let filtered = category === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === category);
+  if (q) {
+    filtered = filtered.filter(p =>
+      p.name.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q)
+    );
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<p style="text-align:center;color:#999;padding:30px 0;grid-column:1/-1;">No products found.</p>';
+    return;
+  }
 
   grid.innerHTML = filtered.map(product => {
     const imgSrc = product.image;
@@ -156,8 +170,14 @@ document.querySelectorAll('.category-tab').forEach(tab => {
     document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     activeCategory = tab.dataset.category;
-    renderProductGrid(activeCategory);
+    renderProductGrid();
   });
+});
+
+// Real-time search
+document.getElementById('productSearch').addEventListener('input', (e) => {
+  searchQuery = e.target.value;
+  renderProductGrid();
 });
 
 // Initial render

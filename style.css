@@ -292,6 +292,38 @@ button:disabled {
 }
 
 /* Category tabs */
+.product-search-wrap {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.product-search {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border: 1.5px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  background: white;
+}
+
+.product-search:focus {
+  border-color: var(--loreal-black);
+}
+
+.product-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .category-tabs {
   display: flex;
   gap: 8px;
