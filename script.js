@@ -250,6 +250,53 @@ document.getElementById('clearAllBtn').addEventListener('click', () => {
 // Apply persisted selections on page load
 updateSelectionUI();
 
+// ============================================================
+// GENERATE ROUTINE BUTTON
+// ============================================================
+document.getElementById('generateBtn').addEventListener('click', async () => {
+  if (selectedProductIds.length === 0) return;
+
+  const selectedProducts = selectedProductIds
+    .map(id => PRODUCTS.find(p => p.id === id))
+    .filter(Boolean);
+
+  const productList = selectedProducts
+    .map(p => `- ${p.name} (${p.category}): ${p.description}`)
+    .join('\n');
+
+  const skinType = document.querySelector('.skin-type-btn.active')?.dataset.skin || null;
+  const skinLine = skinType ? ` I have ${skinType} skin.` : '';
+
+  const routinePrompt = `I've selected these L'Or\u00e9al products and would like a personalized skincare routine using them:${skinLine}\n\n${productList}\n\nPlease create a step-by-step morning and evening routine using these specific products, including tips on how and when to apply each one.`;
+
+  // Scroll chat into view
+  document.getElementById('chatContainer').scrollIntoView({ behavior: 'smooth' });
+
+  // Show as user message
+  showUserQuestion('Generate my routine with selected products');
+  typingIndicator.classList.remove('hidden');
+
+  messages.push({ role: 'user', content: routinePrompt });
+
+  try {
+    const response = await fetch(workerUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages })
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const result = await response.json();
+    const replyText = result.choices[0].message.content;
+    messages.push({ role: 'assistant', content: replyText });
+    typingIndicator.classList.add('hidden');
+    showAssistantMessage(replyText);
+  } catch (error) {
+    console.error('Error:', error);
+    typingIndicator.classList.add('hidden');
+    showAssistantMessage('Sorry, something went wrong generating your routine. Please try again.');
+  }
+});
+
 // Show welcome message on load
 showAssistantMessage('👋 Welcome! Browse and select products above, then click **Generate My Routine** — or ask me anything about L\'Oréal skincare.');
 

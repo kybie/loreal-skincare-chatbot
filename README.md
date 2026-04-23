@@ -41,7 +41,7 @@ loreal-skincare-chatbot/
 - [x] **Product Selection** — Click a product to select/deselect it; visual highlight (border/glow) updates on click; selected products list appears above the "Generate Routine" button
 - [x] **Reveal Product Description** — Each product card shows its description (hover overlay, modal, or toggle button)
 - [x] **Save Selected Products** — Selections persist after page reload using localStorage; user can remove individual products or clear all
-- [ ] **Generate Routine Button** — Sends selected product data + conversation history to the Cloudflare Worker; displays a personalized routine in the chat
+- [x] **Generate Routine Button** — Sends selected product data + conversation history to the Cloudflare Worker; displays a personalized routine in the chat
 
 ### Bonus Features (LevelUp)
 
@@ -88,7 +88,7 @@ loreal-skincare-chatbot/
 | Criteria | Status |
 |---|---|
 | Product Selection (click, visual state, selected list) | ✅ Done |
-| Routine Generation (Generate Routine → chat response) | ⬜ Not yet |
+| Routine Generation (Generate Routine → chat response) | ✅ Done |
 | Follow-Up Chat (context-aware responses) | ✅ Done |
 | Save Selected Products (localStorage, clearable) | ✅ Done |
 | Reveal Product Description (hover/modal/toggle) | ✅ Done |
