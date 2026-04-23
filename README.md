@@ -1,82 +1,101 @@
-# L'Oréal Skin Care Assistant Chatbot
+# L'Oréal Product-Aware Routine Builder Chatbot
 
-An AI-powered chatbot that helps consumers explore L'Oréal's skincare products, built with OpenAI and secured via Cloudflare Worker.
+A smart skincare routine builder that lets users browse L'Oréal products, select favorites, and generate personalized routines through an AI-powered chat interface.
+
+---
 
 ## Project Structure
 
 ```
 loreal-skincare-chatbot/
-├── index.html          # Main HTML structure
-├── style.css           # L'Oréal branded styling
-├── script.js           # Chat logic + conversation history
-├── secrets.js         # Placeholder for local dev (API key goes here temporarily)
-├── cloudflare-worker.js # Cloudflare Worker script (SECURE - keeps key hidden)
-└── README.md          # This file
+├── index.html              # Main HTML structure
+├── style.css               # L'Oréal branded styling
+├── script.js               # Chat logic + product selection + conversation history
+├── secrets.js              # Placeholder for local dev (API key goes here temporarily)
+├── cloudflare-worker.js    # Cloudflare Worker script (SECURE - keeps key hidden)
+├── wrangler.jsonc          # Wrangler config for Worker deployment
+└── README.md               # This file
 ```
 
-## Features
+---
 
-### Core (Required)
-- ✅ L'Oréal branding (logo, brand colors)
-- ✅ System prompt keeps AI on-topic for skincare
-- ✅ User input captured and sent to OpenAI via Cloudflare Worker
-- ✅ Response displayed on page
-- ✅ API key protected behind Cloudflare Worker
+## Phase 1 — Chatbot Foundation ✅ Complete
 
-### LevelUp Bonus Features
-- ✅ Conversation history maintained across messages
-- ✅ User question displayed above each AI response
-- ✅ Chat bubble UI with distinct styling (user vs assistant)
+- [x] L'Oréal branding (logo, brand colors, typography)
+- [x] System prompt keeps responses on-topic for L'Oréal skincare
+- [x] User input captured and sent to OpenAI via Cloudflare Worker
+- [x] Response displayed in chat
+- [x] API key protected behind Cloudflare Worker (never exposed in browser)
+- [x] Conversation history maintained across messages
+- [x] User question displayed above each AI response
+- [x] Chat bubble UI with distinct styling (user vs. assistant)
+- [x] Skin type selector (Dry / Oily / Combination / Sensitive) adjusts recommendations
 
-## Setup Instructions
+---
 
-### Step 1: Deploy Cloudflare Worker
-1. Create a Cloudflare account at cloudflare.com
-2. Go to Workers & Pages → Create Application → Create Worker
+## Phase 2 — Product-Aware Routine Builder 🚧 In Progress
+
+### Required Features
+
+- [ ] **Product Grid** — Display real L'Oréal products with name, image, and category
+- [ ] **Product Selection** — Click a product to select/deselect it; visual highlight (border/glow) updates on click; selected products list appears above the "Generate Routine" button
+- [ ] **Reveal Product Description** — Each product card shows its description (hover overlay, modal, or toggle button)
+- [ ] **Save Selected Products** — Selections persist after page reload using localStorage; user can remove individual products or clear all
+- [ ] **Generate Routine Button** — Sends selected product data + conversation history to the Cloudflare Worker; displays a personalized routine in the chat
+
+### Bonus Features (LevelUp)
+
+- [ ] **Product Search** — Real-time search field filters products by name or keyword alongside category filters
+- [ ] **Web Search Integration** — Chatbot responses include current, real-world information with visible links or citations
+- [ ] **RTL Language Support** — Layout supports right-to-left languages; product grid, selected products section, and chat all adjust correctly
+
+---
+
+## Cloudflare Worker Setup
+
+1. Create a Cloudflare account at [cloudflare.com](https://cloudflare.com)
+2. Go to **Workers & Pages → Create Application → Create Worker**
 3. Name your worker (e.g., `loreal-chatbot-worker`)
 4. Copy the contents of `cloudflare-worker.js` into the worker editor
 5. Add your OpenAI API key as an environment variable:
-   - In worker settings → Variables → Add Variable
+   - Worker Settings → Variables → Add Variable
    - Name: `OPENAI_API_KEY`
    - Value: Your OpenAI API key
 6. Deploy the worker
-7. Copy the worker's URL (e.g., `https://loreal-chatbot-worker.your-subdomain.workers.dev`)
+7. Copy the worker URL (e.g., `https://loreal-chatbot-worker.your-subdomain.workers.dev`)
+8. In `script.js`, replace `YOUR_CLOUDFLARE_WORKER_URL` with your actual worker URL:
+   ```js
+   const workerUrl = 'https://loreal-chatbot-worker.your-subdomain.workers.dev';
+   ```
+9. Open `index.html` in your browser to test locally
 
-### Step 2: Update script.js
-In `script.js`, replace `YOUR_CLOUDFLARE_WORKER_URL` with your actual worker URL:
-```javascript
-const workerUrl = 'https://loreal-chatbot-worker.your-subdomain.workers.dev';
-```
+---
 
-### Step 3: Open in Browser
-Open `index.html` in your browser to test locally.
-
-## L'Oréal Brand Colors
+## Brand Colors
 
 | Color | Hex | Usage |
-|-------|-----|-------|
-| L'Oréal Black | #10069f | Primary brand color |
-| Gold | #c5a88e | Accents |
-| Rose | #d4a5a5 | Subtle highlights |
-| Dark | #1a1a2e | Text |
-| Light | #faf8f5 | Backgrounds |
+|---|---|---|
+| L'Oréal Blue | `#10069f` | Primary brand color |
+| Gold | `#c5a88e` | Accents |
+| Rose | `#d4a5a5` | Subtle highlights |
+| Dark | `#1a1a2e` | Text |
+| Light | `#faf8f5` | Backgrounds |
+
+---
 
 ## Rubric Checklist
 
-- [x] **L'Oréal Branding** - Logo shown, official brand colors used
-- [x] **Chatbot Configuration** - System prompt, input capture, API call, response display
-- [x] **AI Relevance** - Refuses off-topic questions, stays on skincare
-- [x] **Secure Deployment** - Cloudflare Worker properly configured
-- [x] **LevelUp: Conversation History** - Context-aware responses
-- [x] **LevelUp: User Question Display** - Shows user's question above response
-- [x] **LevelUp: Chat Bubble UI** - Distinct styling for user/assistant messages
-- [ ] **Reflection Questions** - Answered thoughtfully
-
-## Reflection Questions
-
-1. **Building a Chatbot**: What was challenging about connecting all the pieces?
-2. **Talking Points**: How would you improve the user experience?
-3. **L'Oréal Recruiter**: Why would L'Oréal be interested in AI chatbots for skincare?
+| Criteria | Status |
+|---|---|
+| Product Selection (click, visual state, selected list) | ⬜ Not yet |
+| Routine Generation (Generate Routine → chat response) | ⬜ Not yet |
+| Follow-Up Chat (context-aware responses) | ✅ Done |
+| Save Selected Products (localStorage, clearable) | ⬜ Not yet |
+| Reveal Product Description (hover/modal/toggle) | ⬜ Not yet |
+| Cloudflare Worker Integration (API key hidden) | ✅ Done |
+| LevelUp: Product Search | ⬜ Not yet |
+| LevelUp: Web Search | ⬜ Not yet |
+| LevelUp: RTL Language Support | ⬜ Not yet |
 
 ---
 
