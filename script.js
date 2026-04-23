@@ -158,6 +158,78 @@ document.querySelectorAll('.category-tab').forEach(tab => {
 renderProductGrid();
 
 // ============================================================
+// PRODUCT SELECTION
+// ============================================================
+let selectedProductIds = [];
+
+function toggleProductSelection(productId) {
+  const idx = selectedProductIds.indexOf(productId);
+  if (idx === -1) {
+    selectedProductIds.push(productId);
+  } else {
+    selectedProductIds.splice(idx, 1);
+  }
+  updateSelectionUI();
+}
+
+function updateSelectionUI() {
+  // Update card visual state
+  document.querySelectorAll('.product-card').forEach(card => {
+    const id = card.dataset.id;
+    if (selectedProductIds.includes(id)) {
+      card.classList.add('selected');
+    } else {
+      card.classList.remove('selected');
+    }
+  });
+
+  // Update selected section visibility
+  const section = document.getElementById('selectedSection');
+  const list = document.getElementById('selectedList');
+
+  if (selectedProductIds.length === 0) {
+    section.classList.add('hidden');
+    return;
+  }
+
+  section.classList.remove('hidden');
+
+  // Render selected product chips
+  list.innerHTML = selectedProductIds.map(id => {
+    const product = PRODUCTS.find(p => p.id === id);
+    if (!product) return '';
+    return `
+      <div class="selected-chip">
+        <span class="selected-chip-name">${product.name}</span>
+        <button type="button" class="selected-chip-remove" data-id="${id}" aria-label="Remove ${product.name}">&times;</button>
+      </div>
+    `;
+  }).join('');
+
+  // Wire up remove buttons on chips
+  list.querySelectorAll('.selected-chip-remove').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.id;
+      selectedProductIds = selectedProductIds.filter(sid => sid !== id);
+      updateSelectionUI();
+    });
+  });
+}
+
+// Delegate click on product grid (works after re-renders)
+document.getElementById('productGrid').addEventListener('click', (e) => {
+  const card = e.target.closest('.product-card');
+  if (card) toggleProductSelection(card.dataset.id);
+});
+
+// Clear all
+document.getElementById('clearAllBtn').addEventListener('click', () => {
+  selectedProductIds = [];
+  updateSelectionUI();
+});
+
+// ============================================================
 // Get references to the DOM elements
 // ============================================================
 const chatForm = document.getElementById('chatForm');

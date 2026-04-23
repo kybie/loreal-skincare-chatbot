@@ -383,3 +383,143 @@ button:disabled {
   color: var(--loreal-dark);
   line-height: 1.35;
 }
+
+/* Selected state */
+.product-card.selected {
+  border-color: var(--loreal-black);
+  box-shadow: 0 0 0 3px rgba(16, 6, 159, 0.18), 0 4px 16px rgba(16, 6, 159, 0.12);
+}
+
+.product-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  background: var(--loreal-black);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 22px;
+  text-align: center;
+}
+
+/* ============================================================
+   SELECTED PRODUCTS BAR
+   ============================================================ */
+
+.selected-section {
+  background: white;
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(16, 6, 159, 0.07);
+  border: 1.5px solid rgba(16, 6, 159, 0.12);
+}
+
+.selected-section.hidden {
+  display: none;
+}
+
+.selected-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.selected-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--loreal-dark);
+}
+
+.clear-all-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  background: transparent;
+  color: var(--loreal-gray);
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-all-btn:hover {
+  border-color: #e74c3c;
+  color: #e74c3c;
+  background: #fff5f5;
+  transform: none;
+}
+
+.selected-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.selected-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--loreal-light);
+  border: 1.5px solid rgba(16, 6, 159, 0.15);
+  border-radius: 20px;
+  padding: 5px 10px 5px 12px;
+  font-size: 13px;
+  color: var(--loreal-dark);
+  font-weight: 500;
+}
+
+.selected-chip-remove {
+  background: none;
+  border: none;
+  color: var(--loreal-gray);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+  border-radius: 50%;
+  transition: color 0.2s;
+  transform: none;
+}
+
+.selected-chip-remove:hover {
+  color: #e74c3c;
+  background: none;
+  transform: none;
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--loreal-black) 0%, #2a1aaf 100%);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 14px rgba(16, 6, 159, 0.25);
+}
+
+.generate-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 6, 159, 0.35);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
+}
