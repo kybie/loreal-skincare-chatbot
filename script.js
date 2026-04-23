@@ -160,7 +160,14 @@ renderProductGrid();
 // ============================================================
 // PRODUCT SELECTION
 // ============================================================
-let selectedProductIds = [];
+const STORAGE_KEY = 'loreal_selected_products';
+
+// Load persisted selections from localStorage
+let selectedProductIds = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+function saveSelections() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(selectedProductIds));
+}
 
 function toggleProductSelection(productId) {
   const idx = selectedProductIds.indexOf(productId);
@@ -169,6 +176,7 @@ function toggleProductSelection(productId) {
   } else {
     selectedProductIds.splice(idx, 1);
   }
+  saveSelections();
   updateSelectionUI();
 }
 
@@ -212,6 +220,7 @@ function updateSelectionUI() {
       e.stopPropagation();
       const id = btn.dataset.id;
       selectedProductIds = selectedProductIds.filter(sid => sid !== id);
+      saveSelections();
       updateSelectionUI();
     });
   });
@@ -226,8 +235,12 @@ document.getElementById('productGrid').addEventListener('click', (e) => {
 // Clear all
 document.getElementById('clearAllBtn').addEventListener('click', () => {
   selectedProductIds = [];
+  saveSelections();
   updateSelectionUI();
 });
+
+// Apply persisted selections on page load
+updateSelectionUI();
 
 // ============================================================
 // Get references to the DOM elements
