@@ -430,10 +430,28 @@ function showUserQuestion(text) {
   scrollToBottom();
 }
 
+function renderMarkdown(text) {
+  return text
+    // Headers ### ## #
+    .replace(/^### (.+)$/gm, '<strong style="font-size:13px;text-transform:uppercase;letter-spacing:0.5px;color:#10069f;">$1</strong>')
+    .replace(/^## (.+)$/gm, '<strong style="font-size:14px;color:#10069f;">$1</strong>')
+    .replace(/^# (.+)$/gm, '<strong style="font-size:15px;color:#10069f;">$1</strong>')
+    // Bold
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    // Inline links [text](url)
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" style="color:#10069f;text-decoration:underline;">$1</a>')
+    // Bullet points
+    .replace(/^[-*] (.+)$/gm, '<span style="display:block;padding-left:12px;">\u2022 $1</span>')
+    // Numbered lists
+    .replace(/^(\d+)\. (.+)$/gm, '<span style="display:block;padding-left:4px;"><strong>$1.</strong> $2</span>')
+    // Newlines
+    .replace(/\n/g, '<br>');
+}
+
 function showAssistantMessage(text) {
   const messageDiv = document.createElement('div');
   messageDiv.className = 'message assistant-message';
-  messageDiv.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+  messageDiv.innerHTML = renderMarkdown(text);
   chatHistory.appendChild(messageDiv);
   scrollToBottom();
 }
