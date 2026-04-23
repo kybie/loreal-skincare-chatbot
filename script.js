@@ -270,7 +270,7 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
   const routinePrompt = `I've selected these L'Or\u00e9al products and would like a personalized skincare routine using them:${skinLine}\n\n${productList}\n\nPlease create a step-by-step morning and evening routine using these specific products, including tips on how and when to apply each one.`;
 
   // Scroll chat into view
-  document.getElementById('chatContainer').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => document.getElementById('chatContainer').scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
 
   // Show as user message
   showUserQuestion('Generate my routine with selected products');
@@ -297,9 +297,6 @@ document.getElementById('generateBtn').addEventListener('click', async () => {
   }
 });
 
-// Show welcome message on load
-showAssistantMessage('👋 Welcome! Browse and select products above, then click **Generate My Routine** — or ask me anything about L\'Oréal skincare.');
-
 // ============================================================
 // Get references to the DOM elements
 // ============================================================
@@ -307,6 +304,9 @@ const chatForm = document.getElementById('chatForm');
 const userInput = document.getElementById('userInput');
 const chatHistory = document.getElementById('chatHistory');
 const typingIndicator = document.getElementById('typingIndicator');
+
+// Show welcome message on load
+showAssistantMessage('👋 Welcome! Browse and select products above, then click **Generate My Routine** — or ask me anything about L\'Oréal skincare.');
 
 // Base system prompt for L'Oréal skincare focus
 const baseSystemPrompt = `You are a friendly and knowledgeable L'Oréal Skin Care Assistant. You help users discover L'Oréal skincare products, build personalized skincare routines, and learn about ingredients and beauty tips.
